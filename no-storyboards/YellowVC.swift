@@ -8,8 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class YellowVC: UIViewController {
 
+    var blueVC: BlueVC!
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +28,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    //doing segways. The data is passed just as the next view controller is being created.
+    @IBAction func loadBlueView(_ sender: Any) {
+        blueVC = BlueVC(printMe: "Print this now!")
+        self.present(blueVC, animated: true, completion: nil)
+    }
 }
 
